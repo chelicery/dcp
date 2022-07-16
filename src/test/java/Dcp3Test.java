@@ -15,6 +15,14 @@ class Dcp3Test {
 
     @Nested
     class Serialize {
+/*
+   node:
+         root
+       /     \
+     left    right
+     /
+ left.left
+*/
 
         @Test
         void serializeNodeTest() {
@@ -32,7 +40,7 @@ class Dcp3Test {
         }
 
  /*
-                node2 =
+    node2 =
                        a
                     /    \
                    /      \
@@ -61,8 +69,8 @@ class Dcp3Test {
             Assertions.assertThat(serialized).isEqualTo(expected);
         }
 
-        /*
-                   node3 =
+/*
+    node3 =
                         a
                       /   \
                      b      c
@@ -72,7 +80,7 @@ class Dcp3Test {
                      e   f
                           \
                            g
-    */
+*/
         @Test
         void serializeNode3Test() {
             //Given
