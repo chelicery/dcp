@@ -34,7 +34,7 @@ public class Dcp3 {
     @EqualsAndHashCode
     public static class Node {
 
-        private String val;
+        private final String val;
         private Node left;
         private Node right;
 
