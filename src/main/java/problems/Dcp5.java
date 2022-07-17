@@ -13,26 +13,25 @@ def cons(a, b):
 Implement car and cdr.
  */
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Dcp5 {
 
-    @Getter
-    @RequiredArgsConstructor
-    public static class Cons{
-
-        private final int a;
-        private final int b;
-
+    public static <T, U, R> Function<BiFunction<T, U, R>, R> cons(T a, U b) {
+        return f -> f.apply(a, b);
     }
 
-    public int car(Cons c){
-        return c.getA();
+    public static <T, U> T car(Function<BiFunction<T, U, T>, T> f){
+        return f.apply((a,b) -> a);
     }
 
-    public int cdr(Cons c){
-        return c.getB();
+    public static <T, U> U cdr(Function<BiFunction<T, U, U>, U> f){
+        return f.apply((a,b) -> b);
     }
 
 }
